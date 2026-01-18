@@ -1,9 +1,12 @@
 from lista_doble import ListaDoblementeLigada
 from salon import Salon
 
+
 class Edificio:
-    def __init__(self, nombre):
+    def __init__(self, nombre, latitud, longitud):
         self.nombre = nombre
+        self.latitud = latitud
+        self.longitud = longitud
         self.salones = ListaDoblementeLigada()
 
     def agregar_salon(self, numero_salon):
@@ -15,10 +18,6 @@ class Edificio:
 
     def mostrar_salones(self):
         self.salones.recorrer_adelante()
-
-    def __str__(self):
-        return f"Edificio {self.nombre}"
-
 
     def buscar_salon(self, numero_salon):
         actual = self.salones.cabeza
@@ -73,3 +72,6 @@ class Edificio:
             actual_salon = actual_salon.siguiente
 
         return resultado
+
+    def __str__(self):
+        return f"Edificio {self.nombre} ({self.latitud}, {self.longitud})"

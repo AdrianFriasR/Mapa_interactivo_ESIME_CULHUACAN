@@ -3,6 +3,7 @@ from lista_doble import ListaDoblementeLigada
 from lista_circular import ListaCircular
 from edificio import Edificio
 from horario import Horario
+from grafo_ESIME import GrafoCampus
 
 # Crear edificio
 edificio_a = Edificio("1")
@@ -40,5 +41,18 @@ arbol = ArbolAVL()
 edificio_a = Edificio("A")
 edificio_b = Edificio("B")
 
-arbol.insertar("A", edificio_a)
-arbol.insertar("B", edificio_b)
+arbol.insertar_edificio("A", edificio_a)
+arbol.insertar_edificio("B", edificio_b)
+
+
+grafo = GrafoCampus()
+
+grafo.agregar_camino("A", "B", 100)
+grafo.agregar_camino("B", "C", 80)
+grafo.agregar_camino("A", "C", 250)
+grafo.agregar_camino("C", "D", 60)
+
+camino, distancia = grafo.ruta_mas_corta("A", "D")
+
+print("Camino:", camino)
+print("Distancia total:", str(distancia) + "m")
