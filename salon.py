@@ -45,3 +45,20 @@ class Salon:
         if salon is None:
             return False
         return salon.clase_actual() is not None  
+    
+    def maestro_en_salon(self, numero_salon, nombre_maestro):
+        salon = self.buscar_salon(numero_salon)
+        if salon is None:
+            return False
+
+        actual = salon.horarios.cabeza
+        if actual is not None:
+            while True:
+                if actual.dato.maestro == nombre_maestro:
+                    return True
+
+                actual = actual.siguiente
+                if actual == salon.horarios.cabeza:
+                    break
+
+        return False
