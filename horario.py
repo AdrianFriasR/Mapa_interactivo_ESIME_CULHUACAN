@@ -33,3 +33,10 @@ class Horario:
     def clases_por_materia_y_carrera(self, nombre_materia, nombre_carrera):
         return self.materia == nombre_materia and self.carrera == nombre_carrera
 
+    def clases_por_maestro(self, nombre_maestro):
+        return self.docente == nombre_maestro
+    
+    def clases_por_grupo(self, nombre_grupo):
+        return self.grupo == nombre_grupo
+    
+
