@@ -33,20 +33,15 @@ class Salon:
                 break
 
         return None
-
-    def buscar_materia(self, nombre_materia):
-        resultado = []
-
-        horarios = self.horarios.cabeza
-        if horarios is not None:
-            actual_horario = horarios
-            while True:
-                if actual_horario.dato.materia.lower() == nombre_materia.lower():
-                    resultado.append((self.numero, actual_horario.dato))
-
-                    actual_horario = actual_horario.siguiente
-                    if actual_horario == horarios:
-                        break
-
-            actual_salon = actual_salon.sig
-        return resultado
+    
+    def salon_vacío(self, numero_salon):
+        salon = self.buscar_salon(numero_salon)
+        if salon is None:
+            return True
+        return salon.horarios.cabeza is None
+    
+    def salon_ocupado(self, numero_salon):
+        salon = self.buscar_salon(numero_salon)
+        if salon is None:
+            return False
+        return salon.clase_actual() is not None  

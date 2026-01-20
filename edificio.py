@@ -75,3 +75,6 @@ class Edificio:
 
     def __str__(self):
         return f"Edificio {self.nombre} ({self.latitud}, {self.longitud})"
+
+    def obtener_coordenadas(self):
+        return (self.latitud, self.longitud)
